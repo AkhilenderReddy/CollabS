@@ -17,12 +17,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// const corsOptions = {
-//   origin: ['http://localhost:3000', 'https://fullstack-marketing-hub.vercel.app'],
-//   credentials: true,
-// };
-// app.use(cors(corsOptions));
-app.use(cors({ origin: "https://collab-s-ytxg.vercel.app/", credentials: true }));
+const corsOptions = {
+  origin: ['http://localhost:3000', 'https://collab-s-ytxg.vercel.app'],
+  credentials: true,
+};
+app.use(cors(corsOptions));
+// app.use(cors({ origin: "https://collab-s-ytxg.vercel.app/", credentials: true }));
 
 
 // Register routes
