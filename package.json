@@ -1,0 +1,25 @@
+{
+  "name": "fullstack-marketing-hub",
+  "version": "1.0.0",
+  "description": "The **Collab** is a web platform designed for influencers and clients to manage promotional campaigns and track social media engagement. It integrates various social media APIs to fetch and display influencer content, engagement metrics, and performance data, helping clients and influencers collaborate more effectively.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "concurrently \"npm start --prefix client\" \"npm start --prefix server\" \"npm start --prefix socket\"",
+    "server": "nodemon -r dotenv/config index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "fullstack-marketing-hub": "file:",
+    "mongodb": "^6.11.0",
+    "mongoose": "^8.8.3"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
