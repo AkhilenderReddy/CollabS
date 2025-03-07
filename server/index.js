@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: true }));
 //   credentials: true,
 // };
 // app.use(cors(corsOptions));
-app.use(cors({ origin: "https://collab-s.vercel.app", credentials: true }));
+app.use(cors({ origin: "https://collab-s-ytxg.vercel.app/", credentials: true }));
 
 
 // Register routes
