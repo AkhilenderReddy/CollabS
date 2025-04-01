@@ -76,7 +76,7 @@ const Loader = () => {
           x="1"
         ></rect>
         
-        <text x="18" y="50" fill="#282828" fontSize="14" fontFamily="sans-serif" fontWeight="bold">COLAB SPHERE</text>
+        <text x="18" y="50" fill="#282828" fontSize="14" fontFamily="sans-serif" fontWeight="bold">COLLAB SPHERE</text>
       </svg>
     </div>
     <div className="truckTires">

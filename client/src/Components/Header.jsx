@@ -6,6 +6,9 @@ import axios from "axios";
 import defaultPic from "../Assets/profile.svg";
 import Marquee from "react-fast-marquee";
 import logo from "../Assets/mylogo.png";
+import facebook from "../Assets/facebook.svg";
+import twitter from "../Assets/x.svg";
+import google from "../Assets/google-g.svg";
 
 const Header = () => {
   const { currentUser,setCurrentUser } = useContext(UserContext);
@@ -45,6 +48,7 @@ const Header = () => {
       decodeToken();
     }
   }, [currentUser, location?.pathname]);
+
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -95,6 +99,22 @@ const Header = () => {
     setIsChecked(!isChecked);
   };
 
+  const handleSocialLogin = (platform) => {
+    switch (platform) {
+      case 'facebook':
+        window.location.href = 'https://www.facebook.com/login';
+        break;
+      case 'twitter':
+        window.location.href = 'https://twitter.com/login';
+        break;
+      case 'google':
+        window.location.href = 'https://accounts.google.com/signin';
+        break;
+      default:
+        console.log('Invalid platform');
+    }
+  };
+
   return (
     <header
       className={`nav-header fixed flex justify-between transition-transform duration-300 ease-in-out ${
@@ -106,8 +126,10 @@ const Header = () => {
           to={"/"}
           className="coloring flex items-center justify-center pl-3"
         >
-          <img className="size-10 mb-1.5" src={logo} alt="" />
-          COLAB SPHERE
+          <div className="flex items-center gap-2">
+            <img src={logo} alt="Logo" className="w-10 h-10" />
+            <span className="text-2xl font-bold text-[#282828]">COLLAB SPHERE</span>
+          </div>
         </Link>
       </div>
       <nav className="flex items-center">
@@ -150,7 +172,32 @@ const Header = () => {
           </MotionConfig>
         </ul>
       </nav>
-      <div className="flex items-center justify-center p-1">
+      <div className="flex items-center justify-center gap-4 p-1">
+        {!currentUser && location.pathname !== '/login' && location.pathname !== '/signup' && (
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => handleSocialLogin('facebook')}
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+            >
+              <img src={facebook} alt="Facebook" className="w-6 h-6" />
+            </button>
+            <button
+              type="button"
+              onClick={() => handleSocialLogin('twitter')}
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+            >
+              <img src={twitter} alt="Twitter" className="w-6 h-6" />
+            </button>
+            <button
+              type="button"
+              onClick={() => handleSocialLogin('google')}
+              className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+            >
+              <img src={google} alt="Google" className="w-6 h-6" />
+            </button>
+          </div>
+        )}
         {currentUser ? (
           <div
             className="flex w-14 h-14 items-center justify-center cursor-pointer"
@@ -177,7 +224,7 @@ const Header = () => {
         )}
       </div>
       <div
-        className="menu-nav w-56   absolute top-14 z-20 right-1 flex flex-col items-center gap-3 px-10 py-5 rounded-3xl"
+        className="menu-nav w-56 absolute top-14 z-20 right-1 flex flex-col items-center gap-3 px-10 py-5 rounded-3xl"
         style={
           !isChecked
             ? { display: "none", background: "#F8FDFE" }

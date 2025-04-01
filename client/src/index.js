@@ -9,6 +9,7 @@ import Home from './Pages/Home';
 import Login from './Pages/Login';
 import Logout from './Pages/Logout';
 import Signup from './Pages/Signup';
+import ForgotPassword from './Pages/ForgotPassword';
 import Chat from './Pages/Chat/Chat';
 import Clients from './Pages/Clients';
 import ClientProfile from './Pages/ClientProfile';
@@ -30,6 +31,7 @@ const router = createBrowserRouter([
       {path: 'login', element: <Login/>},
       {path: 'logout', element: <Logout/>},
       {path: 'signup', element: <Signup/>},
+      {path: 'forgot-password', element: <ForgotPassword/>},
       {path: 'chat', element: <Chat/>},
       {path: 'clients', element: <Clients/>},
       {path: 'Influencers', element: <Influencers/>},

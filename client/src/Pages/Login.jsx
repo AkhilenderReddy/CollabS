@@ -14,7 +14,6 @@ const Login = () => {
   const [isLoading,setIsLoading] = useState(false);
   const [err,setErr] = useState('');
 
-
   const navigate = useNavigate();
   const { currentUser , setCurrentUser } = useContext(UserContext);
 
@@ -45,7 +44,6 @@ const Login = () => {
     if(currentUser?.token){
       navigate('/') 
     }
-  
   },[currentUser?.id])
 
   return (
@@ -77,43 +75,56 @@ const Login = () => {
               Client
             </button>
           </div>
-          <form className="flex flex-col gap-10 items-center mt-5" onSubmit={loginUser}>
-            {/* {error && <ErrorCompo err={error} />} */}
+
+          <form onSubmit={loginUser} className="flex flex-col gap-10 items-center mt-5">
             <input
-            style={{border: '1.5px solid #efefef'}}
-              className='bg-transparent px-5 py-3 rounded-2xl'
               type="text"
-              placeholder="Username"
               name="username"
+              placeholder="Username"
               value={userData.username}
               onChange={changeInputHandler}
+              style={{border: '1.5px solid #efefef'}}
+              className='bg-transparent px-5 py-3 rounded-2xl'
+              required
               autoFocus
             />
             <input
-            style={{border: '1.5px solid #efefef'}}
-              className='bg-transparent px-5 py-3 rounded-2xl'
               type="password"
-              placeholder="Password"
               name="password"
+              placeholder="Password"
               value={userData.password}
               onChange={changeInputHandler}
+              style={{border: '1.5px solid #efefef'}}
+              className='bg-transparent px-5 py-3 rounded-2xl'
+              required
             />
-            {err && <ErrComponent err={err}/>}
+            {err && <ErrComponent err={err} />}
             <button
               type="submit"
-              className="login-button flex items-center justify-center px-5 py-3 w-full rounded-full mb-3 cursor-pointer"
-              // disabled={!userData.role}
+              className="login-button flex items-center justify-center px-5 py-3 w-full rounded-full mb-3" 
               style={
                 isLoading ? {color: '#fff',backgroundColor: '#fff'} : {color: '#fff',backgroundColor: '#05061f'}
               }
+              disabled={isLoading}
             >
-              
-              {isLoading ? <div className='w-fit h-fit px-5'><Loader/></div> : <p>Login</p> }
+              {isLoading ? <div className='w-fit h-fit px-5'><Loader/></div> : <p>Sign In</p>}
             </button>
           </form>
-          <small>
-            New to Marketing-Hub? <Link className='underline' to="/signup">Sign up</Link>
-          </small>
+          <div className="text-center mt-4">
+            <small className="text-gray-600">
+              Don't have an account?{" "}
+              <Link to="/signup" className="text-[#df84ec] hover:text-[#c75cd9]">
+                Sign Up
+              </Link>
+            </small>
+          </div>
+          <div className="text-center mt-2">
+            <small className="text-gray-600">
+              <Link to="/forgot-password" className="text-[#df84ec] hover:text-[#c75cd9]">
+                Forgot Password?
+              </Link>
+            </small>
+          </div>
         </div>
       </div>
     </section>
