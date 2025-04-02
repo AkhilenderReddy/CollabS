@@ -10,6 +10,11 @@ import axios from "axios";
 import PromotionCard from "../Components/PromotionCard";
 import Loader from "../Components/Loader";
 import Morquee from "../Components/Morquee";
+import akhilender from "../Assets/akhilenderremovebg.png";
+import anish from "../Assets/anish.jpg";
+import rajiv from "../Assets/rajiv.jpg";
+import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
@@ -222,13 +227,84 @@ const Home = () => {
           )}
         </div>
       </div>
+
+      {/* Technical Support Section */}
+      <section className="w-full flex justify-center md:my-[5rem] my-10">
+        <div className="w-full flex flex-col gap-10">
+          <h1 className="text-center text-[#8a00c2] md:text-7xl text-3xl font-bold">
+            Technical Support
+          </h1>
+          <div className="w-full overflow-hidden">
+            <div className="w-full px-4 mx-auto">
+              <div className="grid items-center grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                  <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
+                    Hey 👋 I am Akhilender
+                  </h2>
+                  <p className="max-w-lg mt-3 text-xl leading-relaxed text-gray-600 md:mt-8">
+                    At CollabSphere, we're here to assist you with any technical questions or issues you may encounter. For support, please reach out to us via email at support@collabsphere.com, and our team will respond promptly to resolve your concerns. We are committed to providing a seamless collaboration experience and ensuring that your workflows remain efficient and uninterrupted.
+                    <br /><br />
+                    Thank you for choosing CollabSphere!
+                  </p>
+
+                  <p className="mt-4 text-xl text-gray-600 md:mt-8">
+                    <span className="relative inline-block">
+                      <span className="absolute inline-block w-full bottom-0.5 h-2" style={{ background: "rgba(214, 10, 255, 0.133)" }}></span>
+                      <span className="relative"> Have a question? </span>
+                    </span>
+                    <br className="block sm:hidden" />
+                    Ask me on <a href="https://x.com/akhil_reddy_t" title=""
+                      className="transition-all duration-200 text-[#8a00c2] hover:text-[#6b00a3] hover:underline">Twitter</a>
+                  </p>
+                </div>
+
+                <div className="relative">
+                  <div className="relative w-full xl:max-w-lg xl:mx-auto">
+                    <img className="absolute inset-x-0 bottom-0 -mb-48 -translate-x-1/2 left-1/2" src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/blob-shape.svg" alt="" />
+                    <img className="relative w-full" src={akhilender} alt="Akhilender" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Contributors Section */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12">
+            <h2 className="font-manrope text-5xl text-center font-bold text-gray-900">Collab Sphere Contributors</h2>
+          </div>
+          <div className="grid grid-cols-1 min-[500px]:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-xl mx-auto md:max-w-3xl lg:max-w-full">
+            <div className="block group md:col-span-2 lg:col-span-1">
+              <div className="relative mb-6">
+                <img src={anish} alt="Anish"
+                  className="w-60 h-80 rounded-full mx-auto transition-all duration-500 object-cover border border-solid border-transparent group-hover:border-indigo-600" style={{ objectPosition: "top" }} />
+              </div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-2 capitalize text-center transition-all duration-500 group-hover:text-indigo-600">
+                P Anish Reddy
+              </h4>
+              <span className="text-gray-500 text-center block transition-all duration-500 group-hover:text-gray-900">
+                Community Outreach and Engagement
+              </span>
+            </div>
+            <div className="block group md:col-span-2 lg:col-span-1">
+              <div className="relative mb-6">
+                <img src={rajiv} alt="Rajiv"
+                  className="w-60 h-80 rounded-full mx-auto transition-all duration-500 object-cover border border-solid border-transparent group-hover:border-indigo-600" />
+              </div>
+              <h4 className="text-xl font-semibold text-gray-900 mb-2 capitalize text-center transition-all duration-500 group-hover:text-indigo-600">
+                D Rajiv Reddy
+              </h4>
+              <span className="text-gray-500 text-center block transition-all duration-500 group-hover:text-gray-900">
+                Social Media and Digital Marketing
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
     </section>
-
-    
-
-
-
-
   );
 };
 
